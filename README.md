@@ -1,18 +1,27 @@
 # ai_summariser
 Article summariser using OpenAI's GPT model
 
-# Tools
+## Tools
 
-### TailwindCSS - modern UI/UX design
-### Redux Tool Kit (RTK) - query API requests that fire on condition
-### RapidAPI - utilising OpenAI GPT
+### React.js
 
+### TailwindCSS 
+- modern UI/UX design
 
-# React + Vite
+### Redux Tool Kit (RTK) 
+- query API requests that fire on condition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### RapidAPI 
+- utilising OpenAI GPT
 
-Currently, two official plugins are available:
+## Features
+• **Modern User Interface**: Features a sleek and user-friendly design, providing an intuitive user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+• **Summary Generation**: Allows users to input a URL of a lengthy article, and utilizes AI to generate a concise summary.
+
+• **History Saving with Local Storage**: Includes a history feature that saves summaries locally, allowing users to revisit and manage their reading history easily.
+
+• **Copy to Clipboard Functionality**: Enables users to quickly copy the summarized content to their clipboard for easy sharing or storage.
+
+• **Advanced RTK Query API Requests**: Leverages the advanced capabilities of Redux Toolkit (RTK) Query for API requests, which are fired conditionally based on specific criteria to optimize data fetching and management.
+
