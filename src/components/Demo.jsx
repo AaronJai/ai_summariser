@@ -10,6 +10,7 @@ const Demo = () => {
   });
   // Storing recent URLs
   const [allArticles, setallArticles] = useState([]);
+  const [copied, setcopied] = useState("");
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
@@ -37,6 +38,12 @@ const Demo = () => {
       // Store URL in local storage
       localStorage.setItem('articles', JSON.stringify(updatedAllArticles));
     }
+  }
+
+  const handleCopy = (copyUrl) => {
+    setcopied(copyUrl);
+    navigator.clipboard.writeText(copyUrl);
+    setTimeout(() => setcopied(false), 3000);
   }
 
   return (
@@ -68,8 +75,12 @@ const Demo = () => {
               onClick={() => setarticle(item)}
               className='link_card'>
 
-              <div className='copy_btn'>
-                <img src={copy} alt='copy_icon' className='w-[40%] h-[40%] object-contain'/>
+              <div className='copy_btn' onClick={() => handleCopy(item.url)}>
+                <img 
+                  src={copied === item.url ? tick : copy} 
+                  alt='copy_icon' 
+                  className='w-[40%] h-[40%] object-contain'
+                />
               </div>
 
               <p className='flex-1 font-satoshi text-blue-700 font-medium text-sm truncate'>
