@@ -8,20 +8,34 @@ const Demo = () => {
     url: '',
     summary: '',
   });
+  // Storing recent URLs
+  const [allArticles, setallArticles] = useState([]);
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
+  // Store recent URLs in local storage
+  useEffect(() => {
+    const articlesFromLocalStorage = JSON.parse(localStorage.getItem('articles'));
+
+    if (articlesFromLocalStorage) {
+      setallArticles(articlesFromLocalStorage);
+    }
+  }, []); // empty array so we execute at the start of the application
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const { data } = await getSummary({ articleUrl: article.url });
 
     if (data?.summary) {
       const newArticle = { ...article, summary: data.summary };
+      const updatedAllArticles = [newArticle, ...allArticles];
+      setallArticles(updatedAllArticles);
 
       setarticle(newArticle);
 
-      console.log(newArticle);
+      // Store URL in local storage
+      localStorage.setItem('articles', JSON.stringify(updatedAllArticles));
     }
   }
 
@@ -47,7 +61,24 @@ const Demo = () => {
         </form>
 
         {/* Browser URL History */}
+        <div className='flex flex-col gap-1 max-h-60 overflow-y-auto'>
+          {allArticles.map((item, index) => (
+            <div 
+              key={`link-${index}`} 
+              onClick={() => setarticle(item)}
+              className='link_card'>
+                
+              <div className='copy_btn'>
+                <img src={copy} alt='copy_icon' className='w-[40%] h-[40%] object-contain'/>
+              </div>
 
+              <p className='flex-1 font-satoshi text-blue-700 font-medium text-sm truncate'>
+                {item.url}
+              </p>
+              
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Display Results */}
