@@ -1,11 +1,11 @@
 # ai_summariser
-Article summariser using OpenAi's GPT model
+Article summariser using OpenAI's GPT model
 
 # Tools
 
-## TailwindCSS - modern UI/UX design
-## Redux Tool Kit (RTK) - query API requests that fire on condition
-## RapidAPI - utilising OpenAI GPT
+### TailwindCSS - modern UI/UX design
+### Redux Tool Kit (RTK) - query API requests that fire on condition
+### RapidAPI - utilising OpenAI GPT
 
 
 # React + Vite
