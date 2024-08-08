@@ -25,3 +25,5 @@ Article summariser using OpenAI's GPT model
 
 • **Advanced RTK Query API Requests**: Leverages the advanced capabilities of Redux Toolkit (RTK) Query for API requests, which are fired conditionally based on specific criteria to optimize data fetching and management.
 
+## Notes
+Original deployment on Netlify, https://wonderful-pastelito-25e475.netlify.app , still exists
